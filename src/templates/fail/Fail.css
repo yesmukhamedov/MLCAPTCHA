@@ -1,0 +1,134 @@
+@-moz-keyframes failFirstLine {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+@-webkit-keyframes failFirstLine {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+@keyframes failFirstLine {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+@keyframes failSecondLine {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+@-webkit-keyframes failSecondLine {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+@-moz-keyframes failSecondLine {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+input[type=checkbox] {
+    display: none;
+}
+.check-box-fail {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border: 2px solid darkgrey;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: border-color ease 0.2s;
+    -o-transition: border-color ease 0.2s;
+    -webkit-transition: border-color ease 0.2s;
+    transition: border-color ease 0.2s;
+    cursor: pointer;
+}
+.check-box-fail::before, .check-box-fail::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: 5px;
+    background-color: red;
+    display: inline-block;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    border-radius: 5px;
+    content: ' ';
+    -webkit-transition: opacity ease 0.5;
+    -moz-transition: opacity ease 0.5;
+    transition: opacity ease 0.5;
+}
+.check-box-fail::before {
+    top: 25px;
+    left: 4px;
+    /*box-shadow: 0 0 0 5px #678;*/
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+.check-box-fail::after {
+    top: 4px;
+    left: 2px;
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked + .check-box-fail, .check-box-fail.checked {
+    border-color: red;
+}
+input[type=checkbox]:checked + .check-box-fail::after, .check-box-fail.checked::after {
+    height: 15px;
+    -moz-animation: failFirstLine 0.2s ease 0s forwards;
+    -o-animation: failFirstLine 0.2s ease 0s forwards;
+    -webkit-animation: failFirstLine 0.2s ease 0s forwards;
+    animation: failFirstLine 0.2s ease 0s forwards;
+}
+input[type=checkbox]:checked + .check-box-fail::before, .check-box-fail.checked::before {
+    height: 36px;
+    -moz-animation: failSecondLine 0.4s ease 0s forwards;
+    -o-animation: failSecondLine 0.4s ease 0s forwards;
+    -webkit-animation: failSecondLine 0.4s ease 0s forwards;
+    animation: failSecondLine 0.4s ease 0s forwards;
+}

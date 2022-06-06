@@ -1,0 +1,16 @@
+.checkbox {
+    box-sizing: border-box;
+
+    border: 2px solid darkgrey;
+    border-radius: 5px;
+
+    width: 30px;
+    height: 30px;
+
+    cursor: pointer;
+}
+
+.checkbox:hover {
+    background: gainsboro;
+    /*darkgrey*/
+}
